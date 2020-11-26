@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/Projet_IWA_Front/static/js/main.09e3128e.chunk.js",
-    "main.js.map": "/Projet_IWA_Front/static/js/main.09e3128e.chunk.js.map",
-    "runtime-main.js": "/Projet_IWA_Front/static/js/runtime-main.acc9675a.js",
-    "runtime-main.js.map": "/Projet_IWA_Front/static/js/runtime-main.acc9675a.js.map",
-    "static/js/2.550615b1.chunk.js": "/Projet_IWA_Front/static/js/2.550615b1.chunk.js",
-    "static/js/2.550615b1.chunk.js.map": "/Projet_IWA_Front/static/js/2.550615b1.chunk.js.map",
-    "static/js/3.a7dcdbaa.chunk.js": "/Projet_IWA_Front/static/js/3.a7dcdbaa.chunk.js",
-    "static/js/3.a7dcdbaa.chunk.js.map": "/Projet_IWA_Front/static/js/3.a7dcdbaa.chunk.js.map",
+    "main.js": "/Projet_IWA_Front/static/js/main.36a6c2da.chunk.js",
+    "main.js.map": "/Projet_IWA_Front/static/js/main.36a6c2da.chunk.js.map",
+    "runtime-main.js": "/Projet_IWA_Front/static/js/runtime-main.ec98e177.js",
+    "runtime-main.js.map": "/Projet_IWA_Front/static/js/runtime-main.ec98e177.js.map",
+    "static/js/2.78a64383.chunk.js": "/Projet_IWA_Front/static/js/2.78a64383.chunk.js",
+    "static/js/2.78a64383.chunk.js.map": "/Projet_IWA_Front/static/js/2.78a64383.chunk.js.map",
+    "static/js/3.34be72fd.chunk.js": "/Projet_IWA_Front/static/js/3.34be72fd.chunk.js",
+    "static/js/3.34be72fd.chunk.js.map": "/Projet_IWA_Front/static/js/3.34be72fd.chunk.js.map",
     "index.html": "/Projet_IWA_Front/index.html",
-    "static/js/2.550615b1.chunk.js.LICENSE.txt": "/Projet_IWA_Front/static/js/2.550615b1.chunk.js.LICENSE.txt"
+    "static/js/2.78a64383.chunk.js.LICENSE.txt": "/Projet_IWA_Front/static/js/2.78a64383.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.acc9675a.js",
-    "static/js/2.550615b1.chunk.js",
-    "static/js/main.09e3128e.chunk.js"
+    "static/js/runtime-main.ec98e177.js",
+    "static/js/2.78a64383.chunk.js",
+    "static/js/main.36a6c2da.chunk.js"
   ]
 }
