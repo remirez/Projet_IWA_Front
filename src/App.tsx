@@ -38,7 +38,7 @@ export default () => {
 
 
     return (
-        <Router>
+        <Router basename='/Projet_IWA_Front'>
             <Grommet {...{ theme }} full>
                 <Box fill >
                     <Navbar />

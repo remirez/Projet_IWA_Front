@@ -1,10 +1,11 @@
 import { Box, Heading, Image, Text, Button, Menu } from 'grommet';
-import { FormNext, PowerReset } from 'grommet-icons';
+import { FormNext, PowerReset, FormUp } from 'grommet-icons';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Colors, Status } from '../globals';
 import { sendLocation } from '../state/location';
 import { changeStatus, currentUser } from '../state/user';
+
 
 export default () => {
     const dispatch = useDispatch();
@@ -49,7 +50,8 @@ export default () => {
             <Box direction="row" align="center" round pad={{ left: 'medium', right: "small" }}
                 background={status === Status.SAFE ? 'status-ok' : status === Status.CONTACT ? 'status-warning' : 'status-critical'}>
                 <Text>Vous êtes : </Text>
-                <Menu label={setLabel( status )}
+                <Menu label={setLabel( status )} dropAlign={{ right: "right", bottom: "top" }}
+                    icon={<FormUp />}
                     items={[
                         { label: 'sain', onClick: () => setStatus( Status.SAFE ) },
                         { label: 'cas contacte', onClick: () => setStatus( Status.CONTACT ) },
