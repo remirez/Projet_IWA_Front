@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Projet_IWA_Front/static/js/main.2c45fc11.chunk.js",
-    "main.js.map": "/Projet_IWA_Front/static/js/main.2c45fc11.chunk.js.map",
+    "main.js": "/Projet_IWA_Front/static/js/main.09e3128e.chunk.js",
+    "main.js.map": "/Projet_IWA_Front/static/js/main.09e3128e.chunk.js.map",
     "runtime-main.js": "/Projet_IWA_Front/static/js/runtime-main.acc9675a.js",
     "runtime-main.js.map": "/Projet_IWA_Front/static/js/runtime-main.acc9675a.js.map",
     "static/js/2.550615b1.chunk.js": "/Projet_IWA_Front/static/js/2.550615b1.chunk.js",
@@ -14,6 +14,6 @@
   "entrypoints": [
     "static/js/runtime-main.acc9675a.js",
     "static/js/2.550615b1.chunk.js",
-    "static/js/main.2c45fc11.chunk.js"
+    "static/js/main.09e3128e.chunk.js"
   ]
 }
