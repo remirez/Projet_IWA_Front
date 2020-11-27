@@ -7,9 +7,21 @@ import { RootState } from "../store";
 import { LocationState, LocationSuccessTypes, LocationType } from "./types";
 
 
-export const sendLocation = createAsyncThunk<{ success: LocationSuccessTypes; }, LocationType>( 'location/sendLocation',
+export const sendLocation = createAsyncThunk<{ success: LocationSuccessTypes; }, LocationType, { state: RootState; }>( 'location/sendLocation',
     async ( location, thunkAPI ) => {
-        const response = await axios.post( `${ appconfig.baseUrl }/location`, { ...location } )
+        const token = thunkAPI.getState().user.currentUser?.token?.access_token;
+        const response = await axios.post( `${ appconfig.baseUrl }/location?token=${ token }`, {
+            latitude: location.latitude,
+            longitude: location.longitude,
+            user_id: location.idUser,
+            user_status: location.status,
+            date: location.date,
+            user_token: token
+        }, {
+            headers: {
+                "Authorization": `Bearer ${ token }`
+            }
+        } )
             .then( response => response.data )
             .catch( err => { console.log( err ); return { type: err.message }; } );
         if ( response.type === LocationSuccessTypes.LOCATION_SEND )

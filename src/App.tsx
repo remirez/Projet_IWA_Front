@@ -42,7 +42,7 @@ export default () => {
             <Grommet {...{ theme }} full>
                 <Box fill >
                     <Navbar />
-                    <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
+                    <Box direction='row' flex overflow="auto">
                         <Box flex align='center' justify='center'>
                             <UserLoading />
                             <UserError />
