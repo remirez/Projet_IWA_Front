@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { stat } from "fs";
 import appconfig from "../../appconfig";
 import { isFulfilledAction, isPendingAction, isRejectedAction } from "../../globals";
 import { RootState } from "../store";
@@ -19,13 +20,18 @@ export const sendLocation = createAsyncThunk<{ success: LocationSuccessTypes; },
 
 const initialState: LocationState = {
     success: undefined,
-    loading: false
+    loading: false,
+    error: undefined
 };
 
 const locationSlice = createSlice( {
     name: 'location',
     initialState,
-    reducers: {},
+    reducers: {
+        removeError: ( state ) => {
+            state.error = undefined;
+        }
+    },
     extraReducers: builder => {
         builder
             .addCase( sendLocation.fulfilled, ( state, action ) => {
@@ -38,6 +44,7 @@ const locationSlice = createSlice( {
             .addMatcher( isRejectedAction( "location/" ), ( state, action ) => {
                 console.log( action.type );
                 state.loading = false;
+                state.error = action.payload;
             } )
             .addMatcher( isFulfilledAction( "location/" ), ( state, action ) => {
                 console.log( action.type );
@@ -50,7 +57,12 @@ const locationSlice = createSlice( {
 
 const locationReducer = locationSlice.reducer;
 
+export const { removeError } = locationSlice.actions;
+
 export const success = ( state: RootState ) => state.location.success;
+
 export const loading = ( state: RootState ) => state.location.loading;
+
+export const error = ( state: RootState ) => state.location.error;
 
 export default locationReducer;

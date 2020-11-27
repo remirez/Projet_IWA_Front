@@ -19,7 +19,7 @@ export default () => {
     const dispatch = useDispatch();
 
     return (
-        <Box animation={{ type: "slideLeft", duration: 300 }}>
+        <Box animation={{ type: "slideLeft", duration: 300 }} pad="large">
             {created === UserSuccessTypes.USER_CREATED ?
                 <Box align="center" justify="center" gap="large" animation={{ type: "slideLeft", duration: 300 }}>
                     <Heading>Informations envoyées !</Heading>
@@ -29,7 +29,7 @@ export default () => {
                     </Link>
                 </Box>
                 :
-                <>
+                <Box margin="medium">
                     <Heading>Créez un compte</Heading>
                     <Form
                         onSubmit={() => {
@@ -84,6 +84,6 @@ export default () => {
                             <Button type="reset" label="Reset" />
                         </Box>
                     </Form>
-                </>}
+                </Box>}
         </Box > );
 };

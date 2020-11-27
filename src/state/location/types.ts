@@ -7,6 +7,7 @@ export enum LocationSuccessTypes {
 export type LocationState = {
     success?: LocationSuccessTypes;
     loading: boolean;
+    error?: string
 };
 
 export type LocationType = {

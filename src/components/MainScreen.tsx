@@ -2,7 +2,7 @@ import { Box, Heading, Image, Text, Button, Menu } from 'grommet';
 import { FormNext, PowerReset, FormUp } from 'grommet-icons';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Colors, Status } from '../globals';
+import { Colors, Status, useResponsive } from '../globals';
 import { sendLocation } from '../state/location';
 import { changeStatus, currentUser } from '../state/user';
 
@@ -33,42 +33,47 @@ export default () => {
         }
     };
 
-    return <Box animation={{ type: "slideLeft", duration: 300 }}>
-        <Box direction="row" gap="large" align="center" justify="between" >
-            <Heading>Votre localisation</Heading>
-            <Box
-                hoverIndicator={true}
-                background="brand2"
-                round
-                pad="xsmall"
-                onClick={() => getLocation()}>
-                <PowerReset />
+    const responsive = useResponsive();
+
+    return (
+        <Box animation={{ type: "slideLeft", duration: 300 }} pad="medium">
+            <Box direction="row" gap="large" align="center" justify="between" >
+                <Heading>Votre localisation</Heading>
+                <Box
+                    responsive={false}
+                    hoverIndicator={true}
+                    background="brand2"
+                    round="full"
+                    pad="xsmall"
+                    onClick={() => getLocation()}>
+                    <PowerReset />
+                </Box>
             </Box>
-        </Box>
-        <Image fit="cover" src={`https://open.mapquestapi.com/staticmap/v5/map?key=Rj0TSGwLALfn3RNupD0RwZ2vV2S5gcds&size=600,400&zoom=14&center=${ latitude },${ longitude }&scalebar=false&locations=${ latitude },${ longitude }|marker-${ Colors.brand }`} />
-        <Box direction="row" gap="large" align="center" margin={{ vertical: "large" }} justify="between">
-            <Box direction="row" align="center" round pad={{ left: 'medium', right: "small" }}
-                background={status === Status.SAFE ? 'status-ok' : status === Status.CONTACT ? 'status-warning' : 'status-critical'}>
-                <Text>Vous êtes : </Text>
-                <Menu label={setLabel( status )} dropAlign={{ right: "right", bottom: "top" }}
-                    icon={<FormUp />}
-                    items={[
-                        { label: 'sain', onClick: () => setStatus( Status.SAFE ) },
-                        { label: 'cas contacte', onClick: () => setStatus( Status.CONTACT ) },
-                        { label: 'covidé', onClick: () => setStatus( Status.COVID ) },
-                    ]} />
+            <Image fit="cover" src={`https://open.mapquestapi.com/staticmap/v5/map?key=Rj0TSGwLALfn3RNupD0RwZ2vV2S5gcds&size=600,400&zoom=14&center=${ latitude },${ longitude }&scalebar=false&locations=${ latitude },${ longitude }|marker-${ Colors.brand }`} />
+            <Box direction={responsive === "small" ? 'column' : "row"} gap="large" align="center" margin={{ vertical: "large" }} justify="between" >
+                <Box direction="row" align="center"
+                    round="large" pad={{ left: 'medium', right: "small" }} responsive={false}
+                    background={status === Status.SAFE ? 'status-ok' : status === Status.CONTACT ? 'status-warning' : 'status-critical'}>
+                    <Text>Vous êtes : </Text>
+                    <Menu label={setLabel( status )} dropAlign={{ right: "right", bottom: "top" }}
+                        icon={<FormUp />}
+                        items={[
+                            { label: 'sain', onClick: () => setStatus( Status.SAFE ) },
+                            { label: 'cas contacte', onClick: () => setStatus( Status.CONTACT ) },
+                            { label: 'covidé', onClick: () => setStatus( Status.COVID ) },
+                        ]} />
+                </Box>
+                <Button primary label="Enregistrer" icon={<FormNext />} size="large"
+                    onClick={() => dispatch( sendLocation( {
+                        altitude: 0,
+                        date: timestamp,
+                        idUser: user!.userId!,
+                        latitude,
+                        longitude,
+                        status
+                    } ) )} />
             </Box>
-            <Button primary label="Enregistrer" icon={<FormNext />} size="large"
-                onClick={() => dispatch( sendLocation( {
-                    altitude: 0,
-                    date: timestamp,
-                    idUser: user!.userId!,
-                    latitude,
-                    longitude,
-                    status
-                } ) )} />
-        </Box>
-    </Box >;
+        </Box > );
 
 };
 

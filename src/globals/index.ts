@@ -1,4 +1,7 @@
 import { AnyAction } from "@reduxjs/toolkit";
+import { ResponsiveContext } from "grommet";
+import React from "react";
+import { useEffect, useState } from "react";
 import appconfig from "../appconfig";
 import { User, UserErrorTypes, UserState } from "../state/user/types";
 
@@ -34,7 +37,7 @@ export const isFulfilledAction = ( prefix: string ) => (
     return hasPrefix( action, prefix ) && isFulfilled( action );
 };
 
-export const getErrorMsg = ( error: UserErrorTypes ) => {
+export const getErrorMsg = ( error: UserErrorTypes | string ) => {
     switch ( error ) {
         case UserErrorTypes.USER_NOT_EXIST:
             return "Le compte avec lequel vous essayez de vous connecter n'existe pas. Veuillez créer un compte si vous en avez pas un.";
@@ -129,4 +132,8 @@ export const removeSavedUser = () => {
     } catch ( e ) {
         console.log( e );
     }
+};
+
+export const useResponsive = () => {
+    return React.useContext( ResponsiveContext );
 };

@@ -33,9 +33,10 @@ export default () => {
                 <Box direction="row" justify="center" align="center" gap="medium">
                     <Text>{`Bonjour, ${ user?.firstName }`}</Text>
                     <Box
+                        responsive={false}
                         hoverIndicator={true}
                         background="brand2"
-                        round
+                        round="full"
                         pad="xsmall"
                         onClick={() => dispatch( logout() )}>
                         <PowerShutdown />
