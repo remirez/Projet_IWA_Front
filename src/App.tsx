@@ -48,9 +48,9 @@ export default () => {
                             <UserError />
                             <Switch >
                                 <Route exact path="/" component={!connected ? WelcomeScreen : MainScreen} />
-                                {/* <Route path="/welcome" component={WelcomeScreen} /> */}
                                 <Route path="/login" component={LoginScreen} />
                                 <Route path="/createAccount" component={CreateAccountScreen} />
+                                <Route exact path="/confirmAccount" component={ConfirmAccountScreen} />
                                 <Route path="/confirmAccount/:token" component={ConfirmAccountScreen} />
                                 <Route path="/forgot" component={ForgotPasswordScreen} />
                             </Switch>

@@ -69,7 +69,7 @@ export default () => {
                             <Button
                                 type="submit"
                                 primary
-                                label="Connexion"
+                                label="S'inscrire"
                                 disabled={
                                     username === '' ||
                                     firstName === '' ||
